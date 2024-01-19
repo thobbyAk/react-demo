@@ -27,12 +27,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm i
-           cd frontend/
-           npm i
-           npm build 
-           npm test  
-           cd ..  
-           pm2 stop 0
-           pm2 start 0
-           pm2 save
-           sudo service nginx restart
+    - run: cd frontend/
+    - run: npm i
+    - run: npm run build 
+    - run: npm test  
+    - run: cd ..  
+    - run: pm2 stop 0
+    - run: pm2 start 0
+    - run: pm2 save
+    - run: sudo service nginx restart
